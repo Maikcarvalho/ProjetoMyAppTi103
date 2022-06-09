@@ -2,6 +2,7 @@ package br.com.senac.myapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +12,7 @@ import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
     //declarar as variáveis globais
-    EditText edtEmail,edtSenha;
+    EditText edtEmail, edtSenha;
     Button btnLogin;
     TextView txtRecuperarSenha;
 
@@ -34,11 +35,15 @@ public class LoginActivity extends AppCompatActivity {
                 String email, senha;
 
                 email = edtEmail.getText().toString();
-                email = edtEmail.getText().toString();
+                senha = edtEmail.getText().toString();
 
                 //criando a estrutura de decisão para acesso ao sistema
-                if(true){
+                if (email.equals("senac@sp.senac.br")&&senha.equals("senac")){
                     //entrar aqui..
+                    Intent intent = new Intent(getApplicationContext(),
+                            MenuPrincipalActivity.class);
+                    //passar parâmetros para outras janelas
+                    startActivity(intent);
                 }
             }
         });
